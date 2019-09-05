@@ -8,10 +8,10 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;    
 import org.springframework.stereotype.Service; 
 
-import com.ideas2it.ibook.model.Employee;
 import com.ideas2it.ibook.dao.EmployeeDao;
 import com.ideas2it.ibook.dao.impl.EmployeeDaoImpl;
-
+import com.ideas2it.ibook.model.Employee;
+import com.ideas2it.ibook.util.IBookException;
 // TODO exception Handling
 
 /**
@@ -27,14 +27,25 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeDao employeeDao;
-   
+
     @Override
-    public Employee getEmployeeByEmployeeCode(String employeeCode) {
+    public Employee getEmployeeByEmployeeCode(String employeeCode)
+                                                         throws IBookException {
         List<Employee> employeeDetail = employeeDao.retrieveEmployeeByEmployeeCode(employeeCode);
         if (0 == employeeDetail.size()) {
             System.out.println("Invalid Employee Code");
         }
         return employeeDetail.get(0);
+    }
+
+    @Override
+    public Employee saveEmployee(Employee employee) throws IBookException {
+        Employee employee = employeeDao.insertEmployee(employee);
+        if(employee.getId().isBlank()) {
+            throw new IBookException("Problem while saving Employee");
+        } else {
+            return employee;
+        }
     }
 }
 

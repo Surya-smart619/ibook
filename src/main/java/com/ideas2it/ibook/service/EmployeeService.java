@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ideas2it.ibook.model.Employee;
-
-// TODO excpetion handling.
+import com.ideas2it.ibook.util.IBookException;
 
 /**
  * <p> 
@@ -23,32 +22,38 @@ public interface EmployeeService {
      * </p>
      *
      * @param employeeCode   - Employee Code to get employee detail.
+     *
      * @return               - It returns an employee detail.
+     *
+     * @throws //TODO
      */
-    Employee getEmployeeByEmployeeCode(String employeeCode);
+    Employee getEmployeeByEmployeeCode(String employeeCode)
+                                                          throws IBookException;
+
+    /**
+     * <p>
+     * Saves New Employee.
+     * </p>
+     *
+     * @param employee  - Employee to be create.
+     *
+     * @return employee - Created Employee.
+     *
+     * @throws //TODO
+     */
+    Employee saveEmployee(Employee employee) throws IBookException;
+
+    /**
+     * <p>
+     * Updates Employee.
+     * </p>
+     *
+     * @param employee  - Employee to be update.
+     *
+     * @return employee - Updated Employee.
+     *
+     * @throws //TODO
+     */
+    Employee updateEmployee(Employee employee) throws IBookException;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

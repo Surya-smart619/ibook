@@ -19,7 +19,7 @@ public class Employee {
     @Id
     private String id;
 
-    @Column(name = "employee_name")
+    @Column(name = "name")
     private String name;
 
     @Column(name = "employee_code")
