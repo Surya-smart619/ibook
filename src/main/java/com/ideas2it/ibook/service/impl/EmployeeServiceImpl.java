@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee getEmployeeByEmployeeCode(String employeeCode) {
         List<Employee> employeeDetail = employeeDao.retrieveEmployeeByEmployeeCode(employeeCode);
         if (0 == employeeDetail.size()) {
-            System.out.println("Invalid Employee Code")
+            System.out.println("Invalid Employee Code");
         }
         return employeeDetail.get(0);
     }

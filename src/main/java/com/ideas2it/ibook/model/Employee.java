@@ -19,6 +19,9 @@ public class Employee {
     @Id
     private String id;
 
+    @Column(name = "employee_name")
+    private String name;
+
     @Column(name = "employee_code")
     private String employeeCode;
 
@@ -91,6 +94,10 @@ public class Employee {
      */
     public String getId() {
         return this.id;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public String getEmployeeCode() {
@@ -176,6 +183,10 @@ public class Employee {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setEmployeeCode(String employeeCode) {
