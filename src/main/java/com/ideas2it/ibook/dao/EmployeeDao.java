@@ -33,15 +33,46 @@ public interface EmployeeDao {
                                                           throws IBookException;
 
     /**
+     * <p>
      * Inserts Employee
+     * </p>
      *
-     * @param employee  - Employee to be created.
+     * @param employee  - Employee to be create.
      *
      * @return employee - Created employee with employee code.
      *
      * @return //TODO
      */
     Employee insertEmployee(Employee employee) throws IBookException;
+
+    /**
+     * <p>
+     * Updates Employee
+     * </p>
+     *
+     * @param employee  - Employee to be update.
+     *
+     * @return employee - Updated employee with employee code.
+     *
+     * @throws //TODO
+     */
+    Employee updateEmployee(Employee employee) throws IBookException;
+
+    /**
+     * <p>
+     * Retrieves employees by given column name, attribute.
+     * </p>
+     *
+     * @param columnName      - //TODO 
+     *
+     * @param attributeName   - //TODO
+     *
+     * @return List<Employee> - Retrived Employees from Database.
+     *
+     * @throws //TODO
+     */
+    List<Employee> retrieveEmployeesByAttribute(String columnName,
+                                        String attribute) throws IBookException;
 }       
 
 
