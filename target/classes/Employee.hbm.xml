@@ -1,0 +1,26 @@
+<hibernate-mapping>  
+    <class name="com.ideas2it.ibook.model.Employee" table="employee">  
+        <id name="id" type = "int"> 
+          <column name="user_login_id"/> 
+            <generator class="foreign">
+             <param name="property">userLogin</param>
+            </generator>  
+        </id>           
+        <property name="name" type = "string" column = "name"></property>
+        <property name="employeeCode" type = "string" column = "employee_code"></property>  
+        <property name="joiningDate" type = "date" column = "joining_date"></property>
+        <property name="releavingDate" type = "date" column = "releaving_date"></property>
+        <property name="birthDate" type = "date" column = "birth_date"></property>
+        <property name="personalEmailId" type = "string" column = "personal_email_id"></property>
+        <property name="officialEmailId" type = "string" column = "official_email_id"></property>
+        <property name="phoneNumber" type = "string" column = "phone_number"></property>
+        <property name="lateralExperience" type = "int" column = "lateral_experience"></property> 
+        <property name="salary" type = "int" column = "salary"></property>  
+        <property name="hobbies" type = "string" column = "hobbies"></property>  
+        <property name="bio" type = "string" column = "bio"></property> 
+        <property name="profilePicPath" type = "string" column = "profile_pic_path"></property>   
+        <property name="status" type = "boolean" column = "status"></property>   
+        <one-to-one name="userLogin" class="com.ideas2it.ibook.model.UserLogin"
+            constrained="true" lazy="false"/>
+    </class>              
+</hibernate-mapping>

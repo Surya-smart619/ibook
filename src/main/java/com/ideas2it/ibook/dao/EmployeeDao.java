@@ -1,11 +1,12 @@
 package com.ideas2it.ibook.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session; 
 
+import com.ideas2it.ibook.model.Role;
 import com.ideas2it.ibook.model.Employee;
-import com.ideas2it.ibook.util.IBookException;
 
 //TODO exception handling
 
@@ -29,19 +30,16 @@ public interface EmployeeDao {
     * @exception HibernateException - Exception occurred while role creation.
     * @throws ShopException         - Exception occurred while role creation.
     */
-    List<Employee> getEmployeeByEmployeeCode(String employeeCode)
-                                                          throws IBookException;
+    List<Employee> retrieveEmployeeByEmployeeCode(String employeeCode);
 
     /**
-     * Inserts Employee
+     * <p>
+     * Closing the session with try-catch block.
+     * </p>
      *
-     * @param employee  - Employee to be created.
-     *
-     * @return employee - Created employee with employee code.
-     *
-     * @return //TODO
+     * @param session - Session to be closed.
      */
-    Employee insertEmployee(Employee employee) throws IBookException;
+    void closeSession(Session session);
 }       
 
 

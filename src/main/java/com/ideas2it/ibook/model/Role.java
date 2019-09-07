@@ -1,43 +1,58 @@
 package com.ideas2it.ibook.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+
+import com.ideas2it.ibook.model.UserLogin;
+
 /**
  * 
  *
  * @author Surya S
  * @since 05/09/2019
  */
-@Entity
-@Table(name= "role")
 public class Role {
 
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    @Column(name = "id")
-    @Id
-    private String id;
+    private int id;
 
-    @Column(name = "name")
     private String name;
 
-    public Role() {}
+    private UserLogin userLogin;
 
-    /**
-     * Getters and Setters
-     */
-    public String getId() {
-        return this.id;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
-    public void setId(String id) {
+    public UserLogin getUserLogin() {
+        return userLogin;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
 
-    public void getName(String name) {
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setUserLogin(UserLogin userLogin) {
+        this.userLogin = userLogin;
     }
 }
 

@@ -1,0 +1,9 @@
+<hibernate-mapping>  
+    <class name="com.ideas2it.ibook.model.Role" table="role">  
+        <id name="id" type = "int" column = "id">  
+            <generator class="native"></generator>  
+        </id>           
+        <property name="name" type = "string" column = "name"></property>
+        <one-to-one name="userLogin" class="com.ideas2it.ibook.model.UserLogin" cascade="all"/>
+    </class>              
+</hibernate-mapping>

@@ -31,10 +31,10 @@ public class HomeController {
      * @param response          - Displays the shop page.
      * @return ModelAndView     - It returns to shop page.
      */
-    @RequestMapping("/homePage") 
-    public String homePage(HttpServletRequest request, HttpServletResponse response) 
+    @RequestMapping("/shop") 
+    public String shop(HttpServletRequest request, HttpServletResponse response) 
                                                             throws IOException {
-        return "homePage";
+        return "shop";
     }
 
     /**

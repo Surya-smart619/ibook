@@ -1,5 +1,21 @@
 package com.ideas2it.ibook.model;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*; //TODO
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+
 public class Address{
 
     @GeneratedValue(generator = "uuid")
@@ -7,9 +23,10 @@ public class Address{
     @Column(name = "id")
     @Id
     private String id;
-
+/*
     @ManyToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Employee employee;
+*/
     private String doorNumber;
     private String street;
     private String area;
@@ -26,11 +43,11 @@ public class Address{
     public String getId() {
         return this.id;
     }
-
+/*
     public Employee getEmployee() {
         return this.employee;
     }
-
+*/
     public String getDoorNumber() {
         return this.doorNumber;
     }
@@ -62,11 +79,11 @@ public class Address{
     public void setId(String id) {
         this.id = id;
     }
-
+/*
     public void setEmployee(Employee employee) {
         this.employee = employee;
     }
-
+*/
     public void setDoorNumber(String doorNumber) {
         this.doorNumber = doorNumber;
     }

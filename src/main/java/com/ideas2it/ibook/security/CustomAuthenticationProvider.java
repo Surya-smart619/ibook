@@ -13,8 +13,8 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;   
 import org.springframework.stereotype.Component;   
 
-import com.ideas2it.ibook.dao.impl.EmployeeServiceImpl;// TODO Location for user login
-import com.ideas2it.ibook.dao.EmployeeService; // TODO Location for user login
+import com.ideas2it.ibook.service.impl.EmployeeServiceImpl;// TODO Location for user login
+import com.ideas2it.ibook.service.EmployeeService; // TODO Location for user login
 import com.ideas2it.ibook.model.Employee; // TODO CHECK AVAILABLE
 import com.ideas2it.ibook.model.Role; //TODO CHECK AVAILABLE
 import com.ideas2it.ibook.model.UserLogin; //TODO CHECK AVAILABLE
@@ -31,7 +31,7 @@ import com.ideas2it.ibook.model.UserLogin; //TODO CHECK AVAILABLE
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
-    private EmployeeDao employeeDao;
+    private EmployeeService employeeService;
 
     /** 
      * <p>

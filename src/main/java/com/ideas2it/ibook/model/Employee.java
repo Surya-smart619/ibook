@@ -3,185 +3,132 @@ package com.ideas2it.ibook.model;
 import java.util.Date;
 import java.util.Set;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*; //TODO
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+
+import com.ideas2it.ibook.model.UserLogin;
+
 /**
  * 
  *
  * @author Surya S
  * @since 05/09/2019
  */
-@Entity
-@Table(name= "employee")
 public class Employee {
- 
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    @Column(name = "id")
-    @Id
-    private String id;
+    
+    private int id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "employee_code")
     private String employeeCode;
 
-    @Column(name = "joining_date")
     private Date joiningDate;
 
-    @Column(name = "releaving_date")
     private Date releavingDate;
 
-    @Column(name = "birth_date")
     private Date birthDate;
 
-    @OneToOne
-    @JoinColumn(name = "designation_id")
-    private Designation designation;
-
-    @Column(name = "personal_email_id")
     private String personalEmailId;
 
-    @Column(name = "official_email_id")
     private String officialEmailId;
 
-    @OneToOne
-    @JoinColumn(name = "blood_group_id")
-    private BloodGroup bloodGroup;
+    private String phoneNumber;
 
-    @Column(name = "phone_number")
-    private long phoneNumber;
+    private Integer lateralExperience;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Address> addresses;
+    private Integer salary;
 
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<ProjectDetail> projectDetail;
-
-    @Column(name = "lateral_experience")
-    private int lateralExperience;
-
-    @Column(name = "salary")
-    private int salary;
-
-    @Column(name = "hobbies")
     private String hobbies;
 
-    @OneToOne
-    @JoinColumn(name = "created_by")
-    private Employee createdBy;
-
-    @OneToOne
-    @JoinColumn(name = "updated_by")
-    private Employee updatedBy;
-
-    @Column(name = "bio")
     private String bio;
 
-    @Column(name = "profile_pic_path")
     private String profilePicPath;
 
-    @OneToOne
-    @JoinColumn(name = "user_login_id")
     private UserLogin userLogin;
 
-    @Column(name = "status")
-    private boolean status;
+    private Boolean status;
 
-    public Employee() {}
-
-    /**
-     * Getters and Setters
-     */
-    public String getId() {
-        return this.id;
+//getter
+    public int getId() {
+        return id;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public String getEmployeeCode() {
-        return this.employeeCode;
+        return employeeCode;
     }
 
     public Date getJoiningDate() {
-        return this.joiningDate;
+        return joiningDate;
     }
 
     public Date getReleavingDate() {
-        return this.releavingDate;
+        return releavingDate;
     }
 
     public Date getBirthDate() {
-        return this.birthDate;
-    }
-
-    public Designation getDesignation() {
-        return this.designation;
+        return birthDate;
     }
 
     public String getPersonalEmailId() {
-        return this.personalEmailId;
+        return personalEmailId;
     }
 
     public String getOfficialEmailId() {
-        return this.officialEmailId;
+        return officialEmailId;
     }
 
-    public BloodGroup getBloodGroup() {
-        return this.bloodGroup;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public long getPhoneNumber() {
-        return this.phoneNumber;
+    public Integer getLateralExperience() {
+        return lateralExperience;
     }
 
-    public Set<Address> getAddresses() {
-        return this.addresses;
-    }
-
-    public Set<ProjectDetail> getProjectDetail() {
-        return this.projectDetail;
-    }
-
-    public int getLateralExperience() {
-        return this.lateralExperience;
-    }
-
-    public int getSalary() {
-        return this.salary;
+    public Integer getSalary() {
+        return salary;
     }
 
     public String getHobbies() {
-        return this.hobbies;
-    }
-
-    public Employee getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public Employee getUpdatedBy() {
-        return this.updatedBy;
+        return hobbies;
     }
 
     public String getBio() {
-        return this.bio;
+        return bio;
     }
 
     public String getProfilePicPath() {
-        return this.profilePicPath;
+        return profilePicPath;
     }
 
     public UserLogin getUserLogin() {
-        return this.userLogin;
+        return userLogin;
     }
 
-    public boolean getStatus() {
-        return this.status;
+    public Boolean getStatus() {
+        return status;
     }
 
-
-    public void setId(String id) {
+//setter
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -205,10 +152,6 @@ public class Employee {
         this.birthDate = birthDate;
     }
 
-    public void setDesignation(Designation designation) {
-        this.designation = designation;
-    }
-
     public void setPersonalEmailId(String personalEmailId) {
         this.personalEmailId = personalEmailId;
     }
@@ -217,40 +160,20 @@ public class Employee {
         this.officialEmailId = officialEmailId;
     }
 
-    public void setBloodGroup(BloodGroup bloodGroop) {
-        this.bloodGroup = bloodGroop;
-    }
-
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public void setAddresses(Set<Address> addresses) {
-        this.addresses = addresses;
-    }
-
-    public void setProjectDetail(Set<ProjectDetail> projectDetail) {
-        this.projectDetail = projectDetail;
-    }
-
-    public void setLateralExperience(int lateralExperience) {
+    public void setLateralExperience(Integer lateralExperience) {
         this.lateralExperience = lateralExperience;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(Integer salary) {
         this.salary = salary;
     }
 
     public void setHobbies(String hobbies) {
         this.hobbies = hobbies;
-    }
-
-    public void setCreatedBy(Employee createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public void setUpdatedBy(Employee updatedBy) {
-        this.updatedBy = updatedBy;
     }
 
     public void setBio(String bio) {
@@ -265,7 +188,7 @@ public class Employee {
         this.userLogin = userLogin;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 }
