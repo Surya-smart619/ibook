@@ -61,8 +61,18 @@ public class Employee {
     private UserLogin userLogin;
 
     private Boolean status;
+    
+    private Designation designation;
+    
+    private Set<Address> address;
+    
+    private Set<Qualification> qualification;
+    
+    private Set<Technology> technology;
+    
+    private BloodGroup bloodGroup;
 
-//getter
+
     public int getId() {
         return id;
     }
@@ -127,7 +137,6 @@ public class Employee {
         return status;
     }
 
-//setter
     public void setId(Integer id) {
         this.id = id;
     }
@@ -191,5 +200,45 @@ public class Employee {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+	public Designation getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(Designation designation) {
+		this.designation = designation;
+	}
+
+	public Set<Address> getAddress() {
+		return address;
+	}
+
+	public void setAddress(Set<Address> address) {
+		this.address = address;
+	}
+
+	public Set<Qualification> getQualification() {
+		return qualification;
+	}
+
+	public void setQualification(Set<Qualification> qualification) {
+		this.qualification = qualification;
+	}
+
+	public Set<Technology> getTechnology() {
+		return technology;
+	}
+
+	public void setTechnology(Set<Technology> technology) {
+		this.technology = technology;
+	}
+
+	public BloodGroup getBloodGroup() {
+		return bloodGroup;
+	}
+
+	public void setBloodGroup(BloodGroup bloodGroup) {
+		this.bloodGroup = bloodGroup;
+	}
 }
 

@@ -1,32 +1,8 @@
 package com.ideas2it.ibook.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*; //TODO
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.JoinTable;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-
 public class Address{
 
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid")
-    @Column(name = "id")
-    @Id
-    private String id;
-/*
-    @ManyToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Employee employee;
-*/
+    private int id;
     private String doorNumber;
     private String street;
     private String area;
@@ -34,82 +10,53 @@ public class Address{
     private String state;
     private int pincode;
     private String country;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getDoorNumber() {
+		return doorNumber;
+	}
+	public void setDoorNumber(String doorNumber) {
+		this.doorNumber = doorNumber;
+	}
+	public String getStreet() {
+		return street;
+	}
+	public void setStreet(String street) {
+		this.street = street;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getArea() {
+		return area;
+	}
+	public void setArea(String area) {
+		this.area = area;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public int getPincode() {
+		return pincode;
+	}
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
 
-    public Address() {}
-
-    /**
-     * Getters and Setters
-     */
-    public String getId() {
-        return this.id;
-    }
-/*
-    public Employee getEmployee() {
-        return this.employee;
-    }
-*/
-    public String getDoorNumber() {
-        return this.doorNumber;
-    }
-
-    public String getStreet() {
-        return this.street;
-    }
-
-    public String getArea() {
-        return this.area;
-    }
-
-    public String getCity() {
-        return this.city;
-    }
-
-    public String getState() {
-        return this.state;
-    }
-
-    public int getPincode() {
-        return this.pincode;
-    }
-
-    public String getCountry() {
-        return this.country;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-/*
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-*/
-    public void setDoorNumber(String doorNumber) {
-        this.doorNumber = doorNumber;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public void setPincode(int pincode) {
-        this.pincode = pincode;
-    }
-
-    public void setCountry(String Country) {
-        this.country = country;
-    }
 }
-

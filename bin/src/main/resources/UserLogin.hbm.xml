@@ -1,0 +1,13 @@
+<hibernate-mapping>  
+    <class name="com.ideas2it.ibook.model.UserLogin" table="user_login"> 
+        <id name="id" type = "int"> 
+          <column name="role_id"/> 
+            <generator class="foreign">
+             <param name="property">role</param>
+            </generator>  
+        </id>            
+        <property name="password" type = "string" column = "password"></property>
+        <one-to-one name="role" class="com.ideas2it.ibook.model.Role" constrained="true" lazy="false"/>
+        <one-to-one name="employee" class="com.ideas2it.ibook.model.Employee" cascade="all"/>
+    </class>              
+</hibernate-mapping>
