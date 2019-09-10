@@ -1,0 +1,16 @@
+<hibernate-mapping>
+
+	<class name="com.ideas2it.ibook.model.Project" table="project">
+	<id name="id" column="id" type="int">
+		<generator class="native"></generator>
+	</id>
+		<property name="name" column="name" type="string"></property>
+		<property name="startDate" column="start_date" type="date"></property>
+		<property name="endDate" column="end_date" type="date"></property>
+		<property name="designation" column="designation" type="string"></property>
+		<set name = "projectDetails" inverse = "true" cascade="save-update">
+            <key column = "project_id" not-null = "true"/>
+                <one-to-many class="com.ideas2it.ibook.model.ProjectDetail"/>
+        </set>
+	</class>
+</hibernate-mapping>

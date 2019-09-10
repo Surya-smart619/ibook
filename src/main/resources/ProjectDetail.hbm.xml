@@ -1,0 +1,16 @@
+<hibernate-mapping>
+
+	<class name="com.ideas2it.ibook.model.ProjectDetail" table="project_detail">
+	<id name="id" column="id" type="int">
+		<generator class="native"></generator>
+	</id>
+		<property name="startDate" column="start_date" type="date"></property>
+		<property name="endDate" column="end_date" type="date"></property>
+		<property name="projectRole" column="project_role" type="string"></property>
+		<property name="isActive" column="is_active" type="boolean"></property>
+		<many-to-one name="employee" class="com.ideas2it.ibook.model.Employee"
+            column="employee_id" not-null="true"/>
+        <many-to-one name="project" class="com.ideas2it.ibook.model.Project"
+        column="project_id" not-null="true"/>
+	</class>
+</hibernate-mapping>
